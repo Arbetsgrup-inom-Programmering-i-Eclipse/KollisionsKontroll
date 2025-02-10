@@ -166,17 +166,6 @@ namespace KollisionsKontroll
 
             var contourOnImagePlane = strukt.GetContoursOnImagePlane(imagePlane).First(); //Hämtar strukturens kontur på planet för iso
 
-            if (isBord)
-            {
-                double bordLong = 100;
-                double angle = 15;
-                double a = Math.Atan(angle) * bordLong;
-                for (int i = 0; i < contourOnImagePlane.Length; i++)
-                {
-                    contourOnImagePlane[i].x += a;
-                }
-            }
-
             foreach (var point in contourOnImagePlane) //går igenom varje punkt från strukturen i planet
             {
                 VVector contourUser = img.DicomToUser(point, _plan); //tar fram punkten i eclipse koord
